@@ -9,12 +9,14 @@
 //
 //
 #include "GamePhysics.hpp"
+#include "MicroStopwatch.hpp"
 
 #include <windows.h>
 #include <ctime>
 #include <iostream>
 #include <thread>
 #include <chrono>
+
 
 //------------------------------------------------------------------------------------------
 GamePhysics::GamePhysics()
@@ -46,32 +48,17 @@ GamePhysics::~GamePhysics()
 void GamePhysics::starGameLoop()
 //------------------------------------------------------------------------------------------
 {
+    MicroStopwatch mTimer;
     while (true) {
-        using namespace std;
-            using namespace std::chrono;
-        system_clock::time_point now = system_clock::now();
+        mTimer.Start();
 
-        time_t sec1;
-        time_t sec2;
-        time(&sec1);
-        double start = clock();
+        updateObects();
         renderField();
-        double end = clock();
-        system_clock::duration tp = now.time_since_epoch();
-        system_clock::time_point now1 = system_clock::now();
 
-        tp -= duration_cast<seconds>(tp);
+        std::this_thread::sleep_for(std::chrono::milliseconds((1000/30) - mTimer.Now()));
+        //std::cout << " time: " << mTimer.Now() << std::endl;
 
-        time(&sec2);
-        double t = (start + 16 - end);
-        std::this_thread::sleep_for(std::chrono::milliseconds(static_cast<int>(t)));
-
-        std::cout<<"start: "<<start<< std::endl;
-        std::cout<<"end: "<<end<< std::endl;
-        std::cout<<"t: "<<t<< std::endl;
-        std::cout<<"sec: "<<difftime(sec1,sec2)<< std::endl;
-        cout  << "tp: "<< static_cast<unsigned>(tp / milliseconds(1)) << endl;
-        system("pause");
+        //system("pause");
     }
 
 

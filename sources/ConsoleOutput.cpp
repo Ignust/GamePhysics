@@ -71,6 +71,8 @@ void ConsoleOutput::newArray(uint8_t **array, const uint8_t xSize, const uint8_t
     } else {
         deleteArray();
         initArray(array,xSize,ySize);
+        mXSize = xSize;
+        mYSize = ySize;
     }
 
     if (array == nullptr){
