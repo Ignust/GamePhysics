@@ -29,7 +29,7 @@ GamePhysics::GamePhysics()
 
     for(uint8_t y = 0; y < ySize; ++y){
         for(uint8_t x = 0; x < xSize; ++x){
-            mFildArray[y][x] = 'o';
+            mFildArray[y][x] = '_';
         }
     }
 }
