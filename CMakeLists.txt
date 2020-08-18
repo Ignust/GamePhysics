@@ -18,6 +18,7 @@ set(SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/sources/GamePhysics.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/sources/ObjectPoint.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/sources/GameEngine.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/sources/MicroStopwatch.cpp
 )
 
 add_executable(EventQueue.v2 ${SOURCES})
