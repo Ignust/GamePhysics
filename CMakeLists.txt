@@ -17,6 +17,7 @@ set(SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/sources/ConsoleOutput.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/sources/GamePhysics.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/sources/ObjectPoint.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/sources/GameEngine.cpp
 )
 
 add_executable(EventQueue.v2 ${SOURCES})
