@@ -10,7 +10,7 @@ ConsoleOutput::ConsoleOutput()
       mArray(nullptr)
 //------------------------------------------------------------------------------------------
 {
-
+    //SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),00001110);
 }
 
 //------------------------------------------------------------------------------------------
@@ -48,6 +48,8 @@ void ConsoleOutput::print(uint8_t** array, const uint8_t xSize, const uint8_t yS
 void ConsoleOutput::initArray(uint8_t **array, const uint8_t xSize, const uint8_t ySize)
 //------------------------------------------------------------------------------------------
 {
+    mXSize = xSize;
+    mYSize = ySize;
     mArray = new uint8_t*[ySize];
     for(uint8_t a = 0; a < ySize; ++a){
         mArray[a] = new uint8_t[xSize];

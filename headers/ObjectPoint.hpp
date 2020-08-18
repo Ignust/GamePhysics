@@ -18,7 +18,7 @@
 
 class ObjectPoint : public IObject {
 public:
-    ObjectPoint(uint8_t x, uint8_t y);
+    ObjectPoint(uint8_t x, uint8_t y, uint8_t speed = 0, Description::EDirection direction = Description::UP);
     ~ObjectPoint();
     void setDescriptionsn(ObjectDescriptions descriptions)override;
     ObjectDescriptions getDescriptions()override;

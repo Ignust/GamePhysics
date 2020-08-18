@@ -33,8 +33,8 @@ private:
 
     uint8_t** mFildArray;
     std::list<IObject*> mObjectList;
-    const uint8_t ySize = 5;
-    const uint8_t xSize = 10;
+    const uint8_t ySize = 25;
+    const uint8_t xSize = 100;
     //ConsoleOutput mConsoleOutput;
 };
 
