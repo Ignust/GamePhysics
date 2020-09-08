@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.5.1)
 
 #project(EventQueue.v2 LANGUAGES CXX )
-project(EventQueue.v2)
+project(GamePhysics.v2)
 
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -15,8 +15,9 @@ include_directories(PUBLIC
 set(SOURCES
     main.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/sources/ConsoleOutput.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/sources/GamePhysics.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/sources/ObjectPoint.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/sources/GameEngine.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/sources/MicroStopwatch.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/sources/MovingObject.cpp
 )
 
-add_executable(EventQueue.v2 ${SOURCES})
+add_executable(GamePhysics.v2 ${SOURCES})
