@@ -1,6 +1,3 @@
-
-
-
 #if !defined(_MOVINGOBJECT_H)
 #define _MOVINGOBJECT_H
 

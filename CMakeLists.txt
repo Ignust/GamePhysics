@@ -16,8 +16,10 @@ set(SOURCES
     main.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/sources/ConsoleOutput.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/sources/GameEngine.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/sources/MicroStopwatch.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/sources/MovingObject.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/sources/MicroStopwatch.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/sources/MovingObject.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/sources/IObject.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/sources/ObjectPoint.cpp
 )
 
 add_executable(GamePhysics.v2 ${SOURCES})
