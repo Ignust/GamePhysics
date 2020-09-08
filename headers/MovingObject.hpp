@@ -5,9 +5,12 @@
 
 class MovingObject {
 public:
+    void updatePhysics();
+
     ObjectDescriptions mOldObjectDescriptions;
     ObjectDescriptions mObjectDescriptions;
-    void UpdatePhysics();
+private:
+    void updatePosition();
 };
 
 #endif  //_MOVINGOBJECT_H

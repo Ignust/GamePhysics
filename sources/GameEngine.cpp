@@ -38,7 +38,7 @@ void GameEngine::starGameLoop()
         mTimer.Start();
 
         for (auto & object: mObjectList){
-            object->UpdatePhysics();
+            object->updatePhysics();
             drawObject(*object);
         }
 
@@ -72,12 +72,13 @@ void GameEngine::renderField()
 }
 
 //------------------------------------------------------------------------------------------
-void  GameEngine::drawObject(IObject obj)
+void GameEngine::drawObject(IObject obj)
 //------------------------------------------------------------------------------------------
 {
     if (obj.mObjectDescriptions.mPositionX !=obj.mOldObjectDescriptions.mPositionX ||
             obj.mObjectDescriptions.mPositionY !=obj.mOldObjectDescriptions.mPositionY) {
-        mFildArray[obj.mObjectDescriptions.mPositionX][obj.mObjectDescriptions.mPositionY] = 'x';
+        mFildArray[obj.mOldObjectDescriptions.mPositionY][obj.mOldObjectDescriptions.mPositionX] = '_';
+        mFildArray[obj.mObjectDescriptions.mPositionY][obj.mObjectDescriptions.mPositionX] = 'x';
     }
 }
 
