@@ -39,6 +39,7 @@ void GameEngine::starGameLoop()
 
         for (auto & object: mObjectList){
             object->UpdatePhysics();
+            drawObject(*object);
         }
 
         renderField();
@@ -63,11 +64,20 @@ void GameEngine::addObcet(IObject* obj)
 void GameEngine::renderField()
 //------------------------------------------------------------------------------------------
 {
-    for (auto & object: mObjectList){
+    /*for (auto & object: mObjectList){
             mFildArray[object->mObjectDescriptions.mPositionX][object->mObjectDescriptions.mPositionY] = 'x';
-
-        }
+        }*/
         ConsoleOutput::init().print(mFildArray, mFieldSizeX, mFieldSizeY);
         //system("pause");
+}
+
+//------------------------------------------------------------------------------------------
+void  GameEngine::drawObject(IObject obj)
+//------------------------------------------------------------------------------------------
+{
+    if (obj.mObjectDescriptions.mPositionX !=obj.mOldObjectDescriptions.mPositionX ||
+            obj.mObjectDescriptions.mPositionY !=obj.mOldObjectDescriptions.mPositionY) {
+        mFildArray[obj.mObjectDescriptions.mPositionX][obj.mObjectDescriptions.mPositionY] = 'x';
+    }
 }
 
