@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.5.1)
 
 #project(EventQueue.v2 LANGUAGES CXX )
-project(EventQueue.v2)
+project(GameEngine)
 
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
