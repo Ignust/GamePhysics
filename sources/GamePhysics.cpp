@@ -11,9 +11,7 @@
 #include "GamePhysics.hpp"
 #include "MicroStopwatch.hpp"
 
-#include <windows.h>
-#include <ctime>
-#include <iostream>
+//#include <iostream>
 #include <thread>
 #include <chrono>
 
