@@ -1,17 +1,23 @@
+#ifndef MICRO_STOPWATCH
+#define MICRO_STOPWATCH
 
+#include <windows.h>
 
-
-#if !defined(_MICROSTOPWATCH_H)
-#define _MICROSTOPWATCH_H
-
-
-class MicroStopwatch {
+class MicroStopwatch
+{
 public:
-    void start();
+    MicroStopwatch();
+    void Start();
     int Now();
+    int Time();
 private:
     LARGE_INTEGER m_liPerfFreq;
     LARGE_INTEGER m_liPerfStart;
 };
 
-#endif  //_MICROSTOPWATCH_H
+
+
+
+
+
+#endif // MICRO_STOPWATCH
