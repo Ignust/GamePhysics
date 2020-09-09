@@ -37,17 +37,13 @@ void GameEngine::starGameLoop()
     while (true) {
         mTimer.Start();
 
-        for (auto & object: mObjectList){
+        for (auto & object : mObjectList){
             object->updatePhysics();
-            drawObject(*object);
+            drawObject(object);
         }
 
         renderField();
-
         std::this_thread::sleep_for(std::chrono::milliseconds((FPS) - mTimer.Now()));
-        //std::cout << " time: " << mTimer.Now() << std::endl;
-
-        //system("pause");
     }
 
 }
@@ -56,8 +52,7 @@ void GameEngine::addObcet(IObject* obj)
 //------------------------------------------------------------------------------------------
 {
     if(obj != nullptr){
-            std::shared_ptr<IObject> tmpPtr = std::make_shared<IObject>(*obj);
-            mObjectList.push_back(tmpPtr);
+            mObjectList.push_back(obj);
         }
 }
 
@@ -65,21 +60,22 @@ void GameEngine::addObcet(IObject* obj)
 void GameEngine::renderField()
 //------------------------------------------------------------------------------------------
 {
-    /*for (auto & object: mObjectList){
-            mFildArray[object->mObjectDescriptions.mPositionX][object->mObjectDescriptions.mPositionY] = 'x';
-        }*/
-        ConsoleOutput::init().print(mFildArray, mFieldSizeX, mFieldSizeY);
-        //system("pause");
+    ConsoleOutput::init().print(mFildArray, mFieldSizeX, mFieldSizeY);
 }
 
 //------------------------------------------------------------------------------------------
-void GameEngine::drawObject(IObject obj)
+void GameEngine::drawObject(IObject* obj)
 //------------------------------------------------------------------------------------------
 {
-    if (obj.mObjectDescriptions.mPositionX !=obj.mOldObjectDescriptions.mPositionX ||
-            obj.mObjectDescriptions.mPositionY !=obj.mOldObjectDescriptions.mPositionY) {
-        mFildArray[static_cast<int>(obj.mOldObjectDescriptions.mPositionY) ][static_cast<int>(obj.mOldObjectDescriptions.mPositionX)] = OBJECT_EMPTY;
-        mFildArray[static_cast<int>(obj.mObjectDescriptions.mPositionY)][static_cast<int>(obj.mObjectDescriptions.mPositionX)] = OBJECT_SYMBOL;
+    if (obj->getObjectDescriptions().mPositionX != obj->getOldObjectDescriptions().mPositionX ||
+            obj->getObjectDescriptions().mPositionY !=obj->getOldObjectDescriptions().mPositionY) {
+
+        mFildArray[static_cast<int>(obj->getOldObjectDescriptions().mPositionY) ]
+                [static_cast<int>(obj->getOldObjectDescriptions().mPositionX)] = OBJECT_EMPTY;
+
+        mFildArray[static_cast<int>(obj->getObjectDescriptions().mPositionY)]
+                [static_cast<int>(obj->getObjectDescriptions().mPositionX)] = OBJECT_SYMBOL;
+
     }
 }
 

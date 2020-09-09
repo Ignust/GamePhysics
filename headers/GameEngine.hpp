@@ -18,10 +18,10 @@ public:
 
 private:
     void renderField();
-    void drawObject(IObject obj);
+    void drawObject(IObject* obj);
 
     uint8_t** mFildArray;
-    std::list< std::shared_ptr<IObject>> mObjectList;
+    std::list<IObject*> mObjectList;
     const uint8_t mFieldSizeY = FIELD_SIZE_Y;
     const uint8_t mFieldSizeX = FIELD_SIZE_X;
 };

@@ -4,6 +4,9 @@
 #include "MovingObject.hpp"
 
 class IObject : public MovingObject {
+public:
+    virtual ObjectDescriptions getObjectDescriptions() = 0;
+    virtual ObjectDescriptions getOldObjectDescriptions() = 0;
 };
 
 #endif  //_IOBJECT_H

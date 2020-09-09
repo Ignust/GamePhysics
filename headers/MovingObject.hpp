@@ -7,6 +7,7 @@ class MovingObject {
 public:
     void updatePhysics();
 
+protected:
     ObjectDescriptions mOldObjectDescriptions;
     ObjectDescriptions mObjectDescriptions;
 private:
