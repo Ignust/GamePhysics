@@ -5,7 +5,7 @@
 
 class ObjectPoint : public IObject {
 public:
-    ObjectPoint(uint8_t x, uint8_t y, uint8_t speed = 1, Description::EDirection direction = Description::DOWN);
+    ObjectPoint(double x, double y, double speed = 1, Description::EDirection direction = Description::DOWN);
     ~ObjectPoint();
 };
 

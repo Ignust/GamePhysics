@@ -1,7 +1,7 @@
 #include "ObjectPoint.hpp"
 
 //------------------------------------------------------------------------------------------
-ObjectPoint::ObjectPoint(uint8_t x, uint8_t y, uint8_t speed, Description::EDirection direction)
+ObjectPoint::ObjectPoint(double x, double y, double speed, Description::EDirection direction)
 //------------------------------------------------------------------------------------------
 {
     mObjectDescriptions.mPositionX = x;

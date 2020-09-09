@@ -77,8 +77,8 @@ void GameEngine::drawObject(IObject obj)
 {
     if (obj.mObjectDescriptions.mPositionX !=obj.mOldObjectDescriptions.mPositionX ||
             obj.mObjectDescriptions.mPositionY !=obj.mOldObjectDescriptions.mPositionY) {
-        mFildArray[obj.mOldObjectDescriptions.mPositionY][obj.mOldObjectDescriptions.mPositionX] = '_';
-        mFildArray[obj.mObjectDescriptions.mPositionY][obj.mObjectDescriptions.mPositionX] = 'x';
+        mFildArray[static_cast<int>(obj.mOldObjectDescriptions.mPositionY) ][static_cast<int>(obj.mOldObjectDescriptions.mPositionX)] = '_';
+        mFildArray[static_cast<int>(obj.mObjectDescriptions.mPositionY)][static_cast<int>(obj.mObjectDescriptions.mPositionX)] = 'x';
     }
 }
 

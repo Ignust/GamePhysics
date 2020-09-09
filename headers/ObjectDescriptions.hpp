@@ -14,9 +14,9 @@ namespace Description {
 }
 
 struct ObjectDescriptions {
-    uint8_t mPositionX;
-    uint8_t mPositionY;
-    uint8_t mSpeed;
+    double mPositionX;
+    double mPositionY;
+    double mSpeed;
     Description::EDirection mDirection;
 };
 

@@ -3,9 +3,10 @@
 
 #include "ConsoleOutput.hpp"
 #include "MicroStopwatch.hpp"
-#include <list>
 #include"IObject.hpp"
+#include "Tools.hpp"
 
+#include <list>
 
 class GameEngine {
 public:
@@ -20,8 +21,8 @@ private:
 
     uint8_t** mFildArray;
     std::list<IObject*> mObjectList;
-    const uint8_t mFieldSizeY = 25;
-    const uint8_t mFieldSizeX = 100;
+    const uint8_t mFieldSizeY = FIELD_SIZE_Y;
+    const uint8_t mFieldSizeX = FIELD_SIZE_X;
 };
 
 #endif  //_GAMEENGINE_H
