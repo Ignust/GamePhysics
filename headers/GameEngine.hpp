@@ -7,6 +7,7 @@
 #include "Tools.hpp"
 
 #include <list>
+#include <memory>
 
 class GameEngine {
 public:
@@ -20,7 +21,7 @@ private:
     void drawObject(IObject obj);
 
     uint8_t** mFildArray;
-    std::list<IObject*> mObjectList;
+    std::list< std::shared_ptr<IObject>> mObjectList;
     const uint8_t mFieldSizeY = FIELD_SIZE_Y;
     const uint8_t mFieldSizeX = FIELD_SIZE_X;
 };

@@ -14,7 +14,7 @@ GameEngine::GameEngine()
 
     for(uint8_t y = 0; y < mFieldSizeY; ++y){
         for(uint8_t x = 0; x < mFieldSizeX; ++x){
-            mFildArray[y][x] = '_';
+            mFildArray[y][x] = OBJECT_EMPTY;
         }
     }
 }
@@ -44,7 +44,7 @@ void GameEngine::starGameLoop()
 
         renderField();
 
-        std::this_thread::sleep_for(std::chrono::milliseconds((1000/30) - mTimer.Now()));
+        std::this_thread::sleep_for(std::chrono::milliseconds((FPS) - mTimer.Now()));
         //std::cout << " time: " << mTimer.Now() << std::endl;
 
         //system("pause");
@@ -56,7 +56,8 @@ void GameEngine::addObcet(IObject* obj)
 //------------------------------------------------------------------------------------------
 {
     if(obj != nullptr){
-            mObjectList.push_back(obj);
+            std::shared_ptr<IObject> tmpPtr = std::make_shared<IObject>(*obj);
+            mObjectList.push_back(tmpPtr);
         }
 }
 
@@ -77,8 +78,8 @@ void GameEngine::drawObject(IObject obj)
 {
     if (obj.mObjectDescriptions.mPositionX !=obj.mOldObjectDescriptions.mPositionX ||
             obj.mObjectDescriptions.mPositionY !=obj.mOldObjectDescriptions.mPositionY) {
-        mFildArray[static_cast<int>(obj.mOldObjectDescriptions.mPositionY) ][static_cast<int>(obj.mOldObjectDescriptions.mPositionX)] = '_';
-        mFildArray[static_cast<int>(obj.mObjectDescriptions.mPositionY)][static_cast<int>(obj.mObjectDescriptions.mPositionX)] = 'x';
+        mFildArray[static_cast<int>(obj.mOldObjectDescriptions.mPositionY) ][static_cast<int>(obj.mOldObjectDescriptions.mPositionX)] = OBJECT_EMPTY;
+        mFildArray[static_cast<int>(obj.mObjectDescriptions.mPositionY)][static_cast<int>(obj.mObjectDescriptions.mPositionX)] = OBJECT_SYMBOL;
     }
 }
 
