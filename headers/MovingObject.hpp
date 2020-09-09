@@ -11,6 +11,10 @@ public:
     ObjectDescriptions mObjectDescriptions;
 private:
     void updatePosition();
+    void directUp();
+    void directDown();
+    void directLeft();
+    void directRight();
 };
 
 #endif  //_MOVINGOBJECT_H

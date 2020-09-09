@@ -16,17 +16,64 @@ void MovingObject::updatePosition()
 {
     switch (mObjectDescriptions.mDirection) {
     case Description::UP:
-        mObjectDescriptions.mPositionY -= mObjectDescriptions.mSpeed;
+        directUp();
         break;
     case Description::DOWN:
-        mObjectDescriptions.mPositionY += mObjectDescriptions.mSpeed;
+        directDown();
         break;
     case Description::LEFT:
-        mObjectDescriptions.mPositionX -= mObjectDescriptions.mSpeed;
+        directLeft();
         break;
     case Description::RIGHT:
-        mObjectDescriptions.mPositionX += mObjectDescriptions.mSpeed;
+        directRight();
         break;
 
     }
 }
+
+//------------------------------------------------------------------------------------------
+void MovingObject::directUp()
+//------------------------------------------------------------------------------------------
+{
+    mObjectDescriptions.mPositionY -= mObjectDescriptions.mSpeed;
+    if (mObjectDescriptions.mPositionY <= FIELD_START_Y) {
+        mObjectDescriptions.mPositionY = FIELD_START_Y;
+        mObjectDescriptions.mDirection = Description::DOWN;
+    }
+}
+
+//------------------------------------------------------------------------------------------
+void MovingObject::directDown()
+//------------------------------------------------------------------------------------------
+{
+    mObjectDescriptions.mPositionY += mObjectDescriptions.mSpeed;
+    if (mObjectDescriptions.mPositionY >= FIELD_FINISH_Y) {
+        mObjectDescriptions.mPositionY = FIELD_FINISH_Y;
+        mObjectDescriptions.mDirection = Description::UP;
+    }
+}
+
+//------------------------------------------------------------------------------------------
+void MovingObject::directLeft()
+//------------------------------------------------------------------------------------------
+{
+    mObjectDescriptions.mPositionX -= mObjectDescriptions.mSpeed;
+    if (mObjectDescriptions.mPositionX <= FIELD_START_X) {
+        mObjectDescriptions.mPositionX = FIELD_START_X;
+        mObjectDescriptions.mDirection = Description::RIGHT;
+    }
+}
+
+//------------------------------------------------------------------------------------------
+void MovingObject::directRight()
+//------------------------------------------------------------------------------------------
+{
+    mObjectDescriptions.mPositionX += mObjectDescriptions.mSpeed;
+    if (mObjectDescriptions.mPositionX >= FIELD_FINISH_X) {
+        mObjectDescriptions.mPositionX = FIELD_FINISH_X;
+        mObjectDescriptions.mDirection = Description::LEFT;
+    }
+}
+
+
+
