@@ -38,14 +38,22 @@ void GameEngine::starGameLoop()
         mTimer.Start();
 
         for (auto & object : mObjectList){
-            object->updatePhysics();
+            //object->updatePhysics();
             for (auto & objectForCheck : mObjectList){
                 if(objectForCheck != object) {
                     object->checkCollision(objectForCheck);
                 }
             }
+            object->updatePhysics();
             drawObject(object);
         }
+
+
+        /*for (auto & object : mObjectList){
+            object->updatePhysics();
+            //object->updatePhysics();
+            drawObject(object);
+        }*/
 
         renderField();
         std::this_thread::sleep_for(std::chrono::milliseconds((FPS) - mTimer.Now()));
