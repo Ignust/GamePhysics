@@ -89,7 +89,6 @@ void MovingObject::directUp()
     if (mObjectDescriptions.mPositionY <= FIELD_START_Y) {
         mObjectDescriptions.mPositionY = FIELD_START_Y;
         mObjectDescriptions.mDirection = Description::DOWN;
-        mObjectDescriptions.mPositionY = static_cast<int>(mObjectDescriptions.mPositionY);
     }
 }
 
@@ -98,10 +97,9 @@ void MovingObject::directDown()
 //------------------------------------------------------------------------------------------
 {
     mObjectDescriptions.mPositionY += mObjectDescriptions.mSpeed;
-    if (mObjectDescriptions.mPositionY >= FIELD_FINISH_Y) {
+    if (mObjectDescriptions.mPositionY >= FIELD_FINISH_Y+1) {
         mObjectDescriptions.mPositionY = FIELD_FINISH_Y;
         mObjectDescriptions.mDirection = Description::UP;
-        mObjectDescriptions.mPositionY = static_cast<int>(mObjectDescriptions.mPositionY);
     }
 }
 
@@ -113,7 +111,6 @@ void MovingObject::directLeft()
     if (mObjectDescriptions.mPositionX <= FIELD_START_X) {
         mObjectDescriptions.mPositionX = FIELD_START_X;
         mObjectDescriptions.mDirection = Description::RIGHT;
-        mObjectDescriptions.mPositionX = static_cast<int>(mObjectDescriptions.mPositionX);
     }
 }
 
@@ -125,7 +122,6 @@ void MovingObject::directRight()
     if (mObjectDescriptions.mPositionX >= FIELD_FINISH_X) {
         mObjectDescriptions.mPositionX = FIELD_FINISH_X;
         mObjectDescriptions.mDirection = Description::LEFT;
-        mObjectDescriptions.mPositionX = static_cast<int>(mObjectDescriptions.mPositionX);
     }
 }
 
