@@ -39,6 +39,11 @@ void GameEngine::starGameLoop()
 
         for (auto & object : mObjectList){
             object->updatePhysics();
+            for (auto & objectForCheck : mObjectList){
+                if(objectForCheck != object) {
+                    object->checkCollision(objectForCheck);
+                }
+            }
             drawObject(object);
         }
 

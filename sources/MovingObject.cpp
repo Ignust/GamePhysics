@@ -11,6 +11,35 @@ void MovingObject::updatePhysics()
 }
 
 //------------------------------------------------------------------------------------------
+void MovingObject::checkCollision(IObject* object)
+//------------------------------------------------------------------------------------------
+{
+    if (static_cast<int>(mObjectDescriptions.mPositionX)  == static_cast<int>(object->getObjectDescriptions().mPositionX)
+            && static_cast<int>(mObjectDescriptions.mPositionY)  == static_cast<int>(object->getObjectDescriptions().mPositionY) ) {
+        processingCollision(object);
+        //object->processingCollision(object);
+
+    }
+    /*if (static_cast<int>(mOldObjectDescriptions.mPositionX)  == static_cast<int>(object->getObjectDescriptions().mPositionX)
+            && static_cast<int>(mOldObjectDescriptions.mPositionY)  == static_cast<int>(object->getObjectDescriptions().mPositionY) ) {
+        processingCollision(object);
+    }*/
+}
+
+//------------------------------------------------------------------------------------------
+ObjectDescriptions MovingObject::getObjectDescriptions()
+//------------------------------------------------------------------------------------------
+{
+    return mObjectDescriptions;
+}
+//------------------------------------------------------------------------------------------
+ObjectDescriptions MovingObject::getOldObjectDescriptions()
+//------------------------------------------------------------------------------------------
+{
+    return mOldObjectDescriptions;
+}
+
+//------------------------------------------------------------------------------------------
 void MovingObject::updatePosition()
 //------------------------------------------------------------------------------------------
 {
@@ -74,6 +103,30 @@ void MovingObject::directRight()
         mObjectDescriptions.mDirection = Description::LEFT;
     }
 }
+
+//------------------------------------------------------------------------------------------
+void MovingObject::processingCollision(IObject* object)
+//------------------------------------------------------------------------------------------
+{
+    switch (mObjectDescriptions.mDirection) {
+    case Description::UP:
+        mObjectDescriptions.mDirection = Description::DOWN;
+        break;
+    case Description::DOWN:
+        mObjectDescriptions.mDirection = Description::UP;
+        break;
+    case Description::LEFT:
+        mObjectDescriptions.mPositionX += 1;
+        mObjectDescriptions.mDirection = Description::RIGHT;
+        break;
+    case Description::RIGHT:
+        mObjectDescriptions.mPositionX -= 1;
+        mObjectDescriptions.mDirection = Description::LEFT;
+        break;
+    }
+
+}
+
 
 
 
