@@ -119,7 +119,7 @@ void MovingObject::directRight()
 //------------------------------------------------------------------------------------------
 {
     mObjectDescriptions.mPositionX += mObjectDescriptions.mSpeed;
-    if (mObjectDescriptions.mPositionX >= FIELD_FINISH_X) {
+    if (mObjectDescriptions.mPositionX >= FIELD_FINISH_X+1) {
         mObjectDescriptions.mPositionX = FIELD_FINISH_X;
         mObjectDescriptions.mDirection = Description::LEFT;
     }
