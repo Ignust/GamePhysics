@@ -87,7 +87,7 @@ void GameEngine::drawObject(IObject* obj)
                 [static_cast<int>(obj->getOldObjectDescriptions().mPositionX)] = OBJECT_EMPTY;
 
         mFildArray[static_cast<int>(obj->getObjectDescriptions().mPositionY)]
-                [static_cast<int>(obj->getObjectDescriptions().mPositionX)] = OBJECT_SYMBOL;
+                [static_cast<int>(obj->getObjectDescriptions().mPositionX)] = obj->getPrintSymbol();
 
     }
 }

@@ -11,10 +11,14 @@ public:
     void checkCollision(IObject* object)override;
     ObjectDescriptions getObjectDescriptions()override;
     ObjectDescriptions getOldObjectDescriptions()override;
+    virtual uint8_t getPrintSymbol() = 0;
 
 protected:
     ObjectDescriptions mOldObjectDescriptions;
     ObjectDescriptions mObjectDescriptions;
+
+private:
+    void checkCollisionType(IObject* object);
 private:
     void updatePosition();
     void directUp();
