@@ -19,44 +19,42 @@ void MovingObject::checkCollision(IObject* object)
 
     switch (mObjectDescriptions.mDirection) {
     case Description::UP:
-        if (static_cast<int>(mObjectDescriptions.mPositionX) == static_cast<int>(object->getObjectDescriptions().mPositionX)
+        /*if (static_cast<int>(mObjectDescriptions.mPositionX) == static_cast<int>(object->getObjectDescriptions().mPositionX)
                 && static_cast<int>(mObjectDescriptions.mPositionY) -1 == static_cast<int>(object->getObjectDescriptions().mPositionY) ) {
             processingCollision(object);
             object->processingCollision(this);
-        }
+        }*/
+        if (static_cast<int>(mObjectDescriptions.mPositionX) == static_cast<int>(object->getObjectDescriptions().mPositionX)
+                        && mObjectDescriptions.mPositionY > object->getObjectDescriptions().mPositionY
+                && object->getObjectDescriptions().mPositionY >= mObjectDescriptions.mPositionY - HALF_CELL) {
+                    checkCollisionType(object);
+                    processingCollision(object);
+                }
         break;
     case Description::DOWN:
-        if (static_cast<int>(mObjectDescriptions.mPositionX) == static_cast<int>(object->getObjectDescriptions().mPositionX)
+        /*if (static_cast<int>(mObjectDescriptions.mPositionX) == static_cast<int>(object->getObjectDescriptions().mPositionX)
                 && static_cast<int>(mObjectDescriptions.mPositionY) +1 == static_cast<int>(object->getObjectDescriptions().mPositionY) ) {
             processingCollision(object);
             object->processingCollision(this);
-        }
+        }*/
+        if (static_cast<int>(mObjectDescriptions.mPositionX) == static_cast<int>(object->getObjectDescriptions().mPositionX)
+                        && mObjectDescriptions.mPositionY < object->getObjectDescriptions().mPositionY
+                && object->getObjectDescriptions().mPositionY <= mObjectDescriptions.mPositionY + HALF_CELL) {
+                    checkCollisionType(object);
+                    processingCollision(object);
+                }
         break;
     case Description::LEFT:
-        /*nextPositionX = mObjectDescriptions.mPositionX - mObjectDescriptions.mSpeed;
-        if (nextPositionX <= object->getObjectDescriptions().mPositionX && nextPositionX > (object->getObjectDescriptions().mPositionX - mObjectDescriptions.mSpeed)
-                && static_cast<int>(mObjectDescriptions.mPositionY)  == static_cast<int>(object->getObjectDescriptions().mPositionY) ) {
-            processingCollision(object);
-            object->processingCollision(this);
-
-        }*/
-        //nextPositionX = (mObjectDescriptions.mPositionX - 0,5);
-        if ( mObjectDescriptions.mPositionX > object->getObjectDescriptions().mPositionX && object->getObjectDescriptions().mPositionX >= (mObjectDescriptions.mPositionX - 0.5)
+        if ( mObjectDescriptions.mPositionX > object->getObjectDescriptions().mPositionX
+             && object->getObjectDescriptions().mPositionX >= (mObjectDescriptions.mPositionX - HALF_CELL)
                 && static_cast<int>(mObjectDescriptions.mPositionY)  == static_cast<int>(object->getObjectDescriptions().mPositionY) ) {
             checkCollisionType(object);
             processingCollision(object);
         }
         break;
     case Description::RIGHT:
-        /*
-        nextPositionX = mObjectDescriptions.mPositionX + 0,5;
-        if (nextPositionX >= object->getObjectDescriptions().mPositionX && nextPositionX < (object->getObjectDescriptions().mPositionX + 0,5)
-                && static_cast<int>(mObjectDescriptions.mPositionY)  == static_cast<int>(object->getObjectDescriptions().mPositionY) ) {
-            processingCollision(object);
-            object->processingCollision(this);
-
-        }*/
-        if ( mObjectDescriptions.mPositionX < object->getObjectDescriptions().mPositionX && object->getObjectDescriptions().mPositionX <= (mObjectDescriptions.mPositionX + 0.5)
+        if ( mObjectDescriptions.mPositionX < object->getObjectDescriptions().mPositionX
+             && object->getObjectDescriptions().mPositionX <= (mObjectDescriptions.mPositionX + HALF_CELL)
                 && static_cast<int>(mObjectDescriptions.mPositionY)  == static_cast<int>(object->getObjectDescriptions().mPositionY) ) {
             checkCollisionType(object);
             processingCollision(object);
@@ -180,27 +178,15 @@ void MovingObject::processingCollision(IObject* object)
     switch (mObjectDescriptions.mDirection) {
     case Description::UP:
         mObjectDescriptions.mDirection = Description::DOWN;
-        mObjectDescriptions.mPositionY = static_cast<int>(mObjectDescriptions.mPositionY);
         break;
     case Description::DOWN:
         mObjectDescriptions.mDirection = Description::UP;
-        mObjectDescriptions.mPositionY = static_cast<int>(mObjectDescriptions.mPositionY);
         break;
     case Description::LEFT:
-        /*if(object->getObjectDescriptions().mDirection == Description::RIGHT){
-            mObjectDescriptions.mDirection = Description::RIGHT;
-            //mObjectDescriptions.mPositionX = static_cast<int>(mObjectDescriptions.mPositionX);
-        }*/
         mObjectDescriptions.mDirection = Description::RIGHT;
-        //mObjectDescriptions.mPositionX = static_cast<int>(mObjectDescriptions.mPositionX);
         break;
     case Description::RIGHT:
-        /*if(object->getObjectDescriptions().mDirection == Description::LEFT){
-            mObjectDescriptions.mDirection = Description::LEFT;
-            //mObjectDescriptions.mPositionX = static_cast<int>(mObjectDescriptions.mPositionX);
-        }*/
         mObjectDescriptions.mDirection = Description::LEFT;
-        //mObjectDescriptions.mPositionX = static_cast<int>(mObjectDescriptions.mPositionX);
         break;
     }
 }

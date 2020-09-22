@@ -13,5 +13,7 @@
 
 #define OBJECT_SYMBOL   'x'
 #define OBJECT_EMPTY    '_'
+#define HALF_CELL       0.5
+
 
 #endif // TOOLS
