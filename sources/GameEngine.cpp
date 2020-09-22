@@ -80,7 +80,7 @@ void GameEngine::renderField()
 void GameEngine::drawObject(IObject* obj)
 //------------------------------------------------------------------------------------------
 {
-    if (obj->getObjectDescriptions().mPositionX != obj->getOldObjectDescriptions().mPositionX ||
+    /*if (obj->getObjectDescriptions().mPositionX != obj->getOldObjectDescriptions().mPositionX ||
             obj->getObjectDescriptions().mPositionY !=obj->getOldObjectDescriptions().mPositionY) {
 
         mFildArray[static_cast<int>(obj->getOldObjectDescriptions().mPositionY) ]
@@ -89,6 +89,11 @@ void GameEngine::drawObject(IObject* obj)
         mFildArray[static_cast<int>(obj->getObjectDescriptions().mPositionY)]
                 [static_cast<int>(obj->getObjectDescriptions().mPositionX)] = obj->getPrintSymbol();
 
-    }
+    }*/
+    mFildArray[static_cast<int>(obj->getOldObjectDescriptions().mPositionY) ]
+            [static_cast<int>(obj->getOldObjectDescriptions().mPositionX)] = OBJECT_EMPTY;
+
+    mFildArray[static_cast<int>(obj->getObjectDescriptions().mPositionY)]
+            [static_cast<int>(obj->getObjectDescriptions().mPositionX)] = obj->getPrintSymbol();
 }
 
