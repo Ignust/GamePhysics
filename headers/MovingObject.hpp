@@ -7,7 +7,7 @@
 
 class MovingObject : public IObject {
 public:
-    MovingObject(double x, double y, double speed = 1, Description::EDirection direction = Description::DOWN, uint8_t printSymbol = 'X');
+    MovingObject(double x, double y, double speed = 1, Description::EDirection direction = Description::DOWN, uint8_t printSymbol = 'X',uint32_t mass = 1);
     void updatePhysics() override;
     void checkCollision(IObject* object)override;
     ObjectDescriptions getObjectDescriptions()override;

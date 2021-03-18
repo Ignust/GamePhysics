@@ -4,7 +4,7 @@
 
 
 //------------------------------------------------------------------------------------------
-MovingObject::MovingObject(double x, double y, double speed, Description::EDirection direction, uint8_t printSymbol)
+MovingObject::MovingObject(double x, double y, double speed, Description::EDirection direction, uint8_t printSymbol,uint32_t mass)
 //------------------------------------------------------------------------------------------
 {
     mObjectDescriptions.mPositionX = x;
@@ -12,6 +12,7 @@ MovingObject::MovingObject(double x, double y, double speed, Description::EDirec
     mObjectDescriptions.mSpeed = speed;
     mObjectDescriptions.mDirection = direction;
     mObjectDescriptions.mPrintSymbol = printSymbol;
+    mObjectDescriptions.mMass = mass;
 }
 
 //------------------------------------------------------------------------------------------

@@ -19,6 +19,7 @@ struct ObjectDescriptions {
     double mSpeed;
     Description::EDirection mDirection;
     uint8_t mPrintSymbol;
+    uint32_t mMass;
 };
 
 #endif  //_OBJECTDESCRIPTIONS_H

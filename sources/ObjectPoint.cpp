@@ -1,8 +1,8 @@
 #include "ObjectPoint.hpp"
 
 //------------------------------------------------------------------------------------------
-ObjectPoint::ObjectPoint(double x, double y, double speed, Description::EDirection direction, uint8_t printSymbol)
-    : MovingObject::MovingObject(x,y,speed,direction, printSymbol)
+ObjectPoint::ObjectPoint(double x, double y, double speed, Description::EDirection direction, uint8_t printSymbol,uint32_t mass)
+    : MovingObject::MovingObject(x,y,speed,direction, printSymbol,mass)
 //------------------------------------------------------------------------------------------
 {
     /*
