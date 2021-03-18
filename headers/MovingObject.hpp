@@ -7,26 +7,27 @@
 
 class MovingObject : public IObject {
 public:
+    MovingObject(double x, double y, double speed = 1, Description::EDirection direction = Description::DOWN, uint8_t printSymbol = 'X');
     void updatePhysics() override;
     void checkCollision(IObject* object)override;
     ObjectDescriptions getObjectDescriptions()override;
     ObjectDescriptions getOldObjectDescriptions()override;
-    virtual uint8_t getPrintSymbol() = 0;
-
-protected:
-    ObjectDescriptions mOldObjectDescriptions;
-    ObjectDescriptions mObjectDescriptions;
+    virtual uint8_t getPrintSymbol()override;
 
 private:
     void checkCollisionType(IObject* object);
-private:
     void updatePosition();
     void directUp();
     void directDown();
     void directLeft();
     void directRight();
+
 protected:
     void processingCollision(IObject* object);
+
+private:
+    ObjectDescriptions mOldObjectDescriptions;
+    ObjectDescriptions mObjectDescriptions;
 };
 
 #endif  //_MOVINGOBJECT_H

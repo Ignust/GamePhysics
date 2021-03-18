@@ -2,6 +2,18 @@
 
 #include "Tools.hpp"
 
+
+//------------------------------------------------------------------------------------------
+MovingObject::MovingObject(double x, double y, double speed, Description::EDirection direction, uint8_t printSymbol)
+//------------------------------------------------------------------------------------------
+{
+    mObjectDescriptions.mPositionX = x;
+    mObjectDescriptions.mPositionY = y;
+    mObjectDescriptions.mSpeed = speed;
+    mObjectDescriptions.mDirection = direction;
+    mObjectDescriptions.mPrintSymbol = printSymbol;
+}
+
 //------------------------------------------------------------------------------------------
 void MovingObject::updatePhysics()
 //------------------------------------------------------------------------------------------
@@ -77,6 +89,13 @@ ObjectDescriptions MovingObject::getOldObjectDescriptions()
 //------------------------------------------------------------------------------------------
 {
     return mOldObjectDescriptions;
+}
+
+//------------------------------------------------------------------------------------------
+uint8_t MovingObject::getPrintSymbol()
+//------------------------------------------------------------------------------------------
+{
+    return mObjectDescriptions.mPrintSymbol;
 }
 
 //------------------------------------------------------------------------------------------
